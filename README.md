@@ -18,24 +18,6 @@ You may enable or disable some build options by -Dkey=value. All available build
 See below if you want to build the GoldSource compatible libraries.
 
 See below, if CMake is not suitable for you:
-
-### Windows
-
-#### Using msvc
-
-We use compilers provided with Microsoft Visual Studio 6. There're `compile.bat` scripts in both `cl_dll` and `dlls` directories.
-Before running any of those files you must define `MSVCDir` variable which is the path to your msvc installation.
-
-    set MSVCDir=C:\Program Files\Microsoft Visual Studio
-    compile.bat
-
-These scripts also can be ran via wine:
-
-    MSVCDir="z:\home\$USER\.wine\drive_c\Program Files\Microsoft Visual Studio" wine cmd /c compile.bat
-
-The libraries built this way are always GoldSource compatible.
-
-There're dsp projects for Visual Studio 6 in `cl_dll` and `dlls` directories, but we don't keep them up-to-date. You're free to adapt them for yourself and try to import into the newer Visual Studio versions.
 ### Linux
 
     (cd dlls && make)

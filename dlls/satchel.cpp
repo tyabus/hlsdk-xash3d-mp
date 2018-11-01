@@ -78,7 +78,7 @@ void CSatchelCharge::Spawn( void )
 	Precache();
 	// motor
 	pev->movetype = MOVETYPE_BOUNCE;
-	pev->solid = SOLID_NOT;
+	pev->solid = SOLID_BBOX;
 
 	SET_MODEL( ENT( pev ), "models/w_satchel.mdl" );
 	//UTIL_SetSize( pev, Vector( -16, -16, -4 ), Vector( 16, 16, 32 ) );	// Old box -- size of headcrab monsters/players get blocked by this
