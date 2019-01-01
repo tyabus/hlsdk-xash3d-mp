@@ -783,35 +783,6 @@ int DispatchPhysicsEntity( edict_t *pEdict )
 	}
 
 	// NOTE: at this point pEntity assume to be valid
-/*
-#ifdef CUSTOM_PHYSICS_TEST
-	// test alien controller without physics, thinking only
-	if( FClassnameIs( pEntity->pev, "monster_alien_controller" ) )
-	{
-		float thinktime;
-
-		thinktime = pEntity->pev->nextthink;
-		if( thinktime <= 0.0f || thinktime > PHYSICS_TIME() + gpGlobals->frametime )
-			return 1;
-
-		if( thinktime < PHYSICS_TIME() )
-			thinktime = PHYSICS_TIME();	// don't let things stay in the past.
-							// it is possible to start that way
-							// by a trigger with a local time.
-		pEntity->pev->nextthink = 0.0f;
-		gpGlobals->time = thinktime;
-
-		DispatchThink( pEdict );
-
-#ifdef GRAVITY_TEST
-		// stupid fake gravity test
-		pEntity->pev->origin.z -= 1;
-		LINK_ENTITY( pEdict, true );
-#endif
-		return 1;	// handled
-	}
-#endif
-*/
 	return 0;
 }
 
