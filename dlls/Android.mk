@@ -95,7 +95,6 @@ LOCAL_SRC_FILES := animating.cpp \
 	   ../pm_shared/pm_debug.c \
 	   ../pm_shared/pm_math.c \
 	   ../pm_shared/pm_shared.c
-#	   ../game_shared/voice_gamemgr.cpp
 
 LOCAL_LDLIBS := -llog
 
