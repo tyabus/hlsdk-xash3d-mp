@@ -40,7 +40,6 @@ LOCAL_SRC_FILES := animating.cpp \
            defaultai.cpp \
            doors.cpp \
            effects.cpp \
-           egon.cpp \
            explode.cpp \
            func_break.cpp \
            func_tank.cpp \
@@ -70,7 +69,6 @@ LOCAL_SRC_FILES := animating.cpp \
            nodes.cpp \
 	   observer.cpp \
            pathcorner.cpp \
-           plane.cpp \
            plats.cpp \
            player.cpp \
            python.cpp \

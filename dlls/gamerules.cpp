@@ -252,11 +252,7 @@ void CGameRules::RefreshSkillData ( void )
 	// Gauss gun
 	gSkillData.plrDmgGauss = GetSkillCvar( "sk_plr_gauss" );
 
-	// Egon Gun
-	gSkillData.plrDmgEgonNarrow = GetSkillCvar( "sk_plr_egon_narrow" );
-	gSkillData.plrDmgEgonWide = GetSkillCvar( "sk_plr_egon_wide" );
-
-	// Hand Grendade
+	// Hand Grenade
 	gSkillData.plrDmgHandGrenade = GetSkillCvar( "sk_plr_hand_grenade" );
 
 	// Satchel Charge

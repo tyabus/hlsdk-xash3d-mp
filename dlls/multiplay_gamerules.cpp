@@ -166,10 +166,6 @@ void CHalfLifeMultiplay::RefreshSkillData( void )
 	// RPG
 	gSkillData.plrDmgRPG = 120;
 
-	// Egon
-	gSkillData.plrDmgEgonWide = 20;
-	gSkillData.plrDmgEgonNarrow = 10;
-
 	// Hand Grendade
 	gSkillData.plrDmgHandGrenade = 100;
 
@@ -733,10 +729,7 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 		WRITE_STRING( killer_weapon_name );		// what they were killed by (should this be a string?)
 	MESSAGE_END();
 
-	// replace the code names with the 'real' names
-	if( !strcmp( killer_weapon_name, "egon" ) )
-		killer_weapon_name = gluon;
-	else if( !strcmp( killer_weapon_name, "gauss" ) )
+	if( !strcmp( killer_weapon_name, "gauss" ) )
 		killer_weapon_name = tau;
 
 	if( pVictim->pev == pKiller )  

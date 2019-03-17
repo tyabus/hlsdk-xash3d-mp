@@ -61,9 +61,6 @@ void CWorldItem::Spawn( void )
 	case 44: // ITEM_BATTERY:
 		pEntity = CBaseEntity::Create( "item_battery", pev->origin, pev->angles );
 		break;
-	case 43: // ITEM_SECURITY:
-		pEntity = CBaseEntity::Create( "item_security", pev->origin, pev->angles );
-		break;
 	case 45: // ITEM_SUIT:
 		pEntity = CBaseEntity::Create( "item_suit", pev->origin, pev->angles );
 		break;
@@ -250,27 +247,6 @@ class CItemBattery : public CItem
 };
 
 LINK_ENTITY_TO_CLASS( item_battery, CItemBattery )
-
-class CItemSecurity : public CItem
-{
-	void Spawn( void )
-	{ 
-		Precache();
-		SET_MODEL( ENT( pev ), "models/w_security.mdl" );
-		CItem::Spawn();
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL( "models/w_security.mdl" );
-	}
-	BOOL MyTouch( CBasePlayer *pPlayer )
-	{
-		pPlayer->m_rgItems[ITEM_SECURITY] += 1;
-		return TRUE;
-	}
-};
-
-LINK_ENTITY_TO_CLASS( item_security, CItemSecurity )
 
 class CItemLongJump : public CItem
 {
