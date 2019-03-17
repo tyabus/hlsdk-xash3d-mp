@@ -55,7 +55,6 @@ LOCAL_SRC_FILES := animating.cpp \
            h_ai.cpp \
            h_battery.cpp \
            h_cycler.cpp \
-           h_cine.cpp \
            h_export.cpp \
            handgrenade.cpp \
            healthkit.cpp \
