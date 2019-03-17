@@ -63,7 +63,6 @@ LOCAL_SRC_FILES := animating.cpp \
            maprules.cpp \
            monsters.cpp \
            monsterstate.cpp \
-           mortar.cpp \
            mp5.cpp \
            multiplay_gamerules.cpp \
            nodes.cpp \
