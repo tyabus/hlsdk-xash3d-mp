@@ -21,7 +21,6 @@
 #include "cbase.h"
 #include "weapons.h"
 #include "player.h"
-#include "talkmonster.h"
 #include "gamerules.h"
 
 static char *memfgets( byte *pMemFile, int fileSize, int &filePos, char *pBuffer, int bufferSize );
