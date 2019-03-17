@@ -25,8 +25,6 @@
 extern int gmsgCurWeapon;
 extern int gmsgSetFOV;
 extern int gmsgTeamInfo;
-         
-extern int g_teamplay;
 
 // Find the next client in the game for this player to spectate
 void CBasePlayer::Observer_FindNextPlayer( bool bReverse )
@@ -283,9 +281,6 @@ void CBasePlayer::StopObserver()
 	// Update Team Status
 	MESSAGE_BEGIN( MSG_ALL, gmsgTeamInfo );
 		WRITE_BYTE( ENTINDEX( edict() ) ); // index number of primary entity
-	if( g_teamplay )
-		WRITE_STRING( TeamID() );
-	else
 		WRITE_STRING( "Players" );
 	MESSAGE_END();
 }

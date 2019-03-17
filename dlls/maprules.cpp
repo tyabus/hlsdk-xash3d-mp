@@ -122,7 +122,7 @@ void CRuleBrushEntity::Spawn( void )
 // CGameScore / game_score	-- award points to player / team 
 //	Points +/- total
 //	Flag: Allow negative scores					SF_SCORE_NEGATIVE
-//	Flag: Award points to team in teamplay		SF_SCORE_TEAM
+//	Flag: Award points to team in team.play		SF_SCORE_TEAM
 
 #define SF_SCORE_NEGATIVE			0x0001
 #define SF_SCORE_TEAM				0x0002

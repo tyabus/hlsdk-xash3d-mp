@@ -22,7 +22,6 @@
 #include	"player.h"
 #include	"weapons.h"
 #include	"gamerules.h"
-#include	"teamplay_gamerules.h"
 #include	"skill.h"
 #include	"game.h"
 
@@ -32,8 +31,6 @@ DLL_GLOBAL CGameRules *g_pGameRules = NULL;
 extern DLL_GLOBAL BOOL g_fGameOver;
 extern int gmsgDeathMsg;	// client dll messages
 extern int gmsgMOTD;
-
-int g_teamplay = 0;
 
 //=========================================================
 //=========================================================
@@ -311,28 +308,19 @@ CGameRules *InstallGameRules( void )
 	if( !gpGlobals->deathmatch )
 	{
 		// singleplayer
-		g_teamplay = 0;
 		ALERT( at_console, "SINGLEPLAYER HAS BEEN CALLED!!!\n" );
 		SERVER_COMMAND("exit\n");SERVER_EXECUTE();
 	}
 	else
 	{
-		if( teamplay.value > 0 )
-		{
-			// teamplay
-			g_teamplay = 1;
-			return new CHalfLifeTeamplay;
-		}
 		if( (int)gpGlobals->deathmatch == 1 )
 		{
 			// vanilla deathmatch
-			g_teamplay = 0;
 			return new CHalfLifeMultiplay;
 		}
 		else
 		{
 			// vanilla deathmatch??
-			g_teamplay = 0;
 			return new CHalfLifeMultiplay;
 		}
 	}

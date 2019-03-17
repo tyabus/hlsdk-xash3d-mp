@@ -81,7 +81,6 @@ LOCAL_SRC_FILES := animating.cpp \
            squeakgrenade.cpp \
            subs.cpp \
 	   xenlite.cpp \
-           teamplay_gamerules.cpp \
            triggers.cpp \
            tripmine.cpp \
            util.cpp \

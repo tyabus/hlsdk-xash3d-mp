@@ -52,8 +52,6 @@ extern int gmsgBhopcap;
 
 extern cvar_t allow_spectators;
 
-extern int g_teamplay;
-
 extern cvar_t bhopcap;
 extern "C" int g_bhopcap;
 
@@ -432,18 +430,6 @@ void Host_Say( edict_t *pEntity, int teamonly )
 	else
 		temp = "say";
 
-	// team match?
-	if( g_teamplay )
-	{
-		UTIL_LogPrintf( "\"%s<%i><%s><%s>\" %s \"%s\"\n", 
-			STRING( pEntity->v.netname ), 
-			GETPLAYERUSERID( pEntity ),
-			GETPLAYERAUTHID( pEntity ),
-			g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pEntity ), "model" ),
-			temp,
-			p );
-	}
-	else
 	{
 		UTIL_LogPrintf( "\"%s<%i><%s><%i>\" %s \"%s\"\n", 
 			STRING( pEntity->v.netname ), 
@@ -667,17 +653,6 @@ void ClientUserInfoChanged( edict_t *pEntity, char *infobuffer )
 			MESSAGE_END();
 		}
 
-		// team match?
-		if( g_teamplay )
-		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" changed name to \"%s\"\n", 
-				STRING( pEntity->v.netname ), 
-				GETPLAYERUSERID( pEntity ), 
-				GETPLAYERAUTHID( pEntity ),
-				g_engfuncs.pfnInfoKeyValue( infobuffer, "model" ), 
-				g_engfuncs.pfnInfoKeyValue( infobuffer, "name" ) );
-		}
-		else
 		{
 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" changed name to \"%s\"\n", 
 				STRING( pEntity->v.netname ), 
@@ -806,7 +781,6 @@ void StartFrame( void )
 	if( g_fGameOver )
 		return;
 
-	gpGlobals->teamplay = teamplay.value;
 	g_ulFrameCount++;
 
 	int oldBhopcap = g_bhopcap;

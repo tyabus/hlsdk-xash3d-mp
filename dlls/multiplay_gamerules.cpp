@@ -13,7 +13,7 @@
 *
 ****/
 //
-// teamplay_gamerules.cpp
+// multiplay_gamerules.cpp
 //
 
 #include	"extdll.h"
@@ -38,7 +38,6 @@ extern int gmsgScoreInfo;
 extern int gmsgMOTD;
 extern int gmsgServerName;
 
-extern int g_teamplay;
 
 #define ITEM_RESPAWN_TIME	30
 #define WEAPON_RESPAWN_TIME	20
@@ -54,13 +53,6 @@ class CMultiplayGameMgrHelper : public IVoiceGameMgrHelper
 public:
 	virtual bool CanPlayerHearPlayer(CBasePlayer *pListener, CBasePlayer *pTalker)
 	{
-		if( g_teamplay )
-		{
-			if( g_pGameRules->PlayerRelationship( pListener, pTalker ) != GR_TEAMMATE )
-			{
-				return false;
-			}
-		}
 
 		return true;
 	}
@@ -421,16 +413,6 @@ void CHalfLifeMultiplay::InitHUD( CBasePlayer *pl )
 	UTIL_ClientPrintAll( HUD_PRINTNOTIFY, UTIL_VarArgs( "%s has joined the game\n", 
 		( pl->pev->netname && ( STRING( pl->pev->netname ) )[0] != 0 ) ? STRING( pl->pev->netname ) : "unconnected" ) );
 
-	// team match?
-	if( g_teamplay )
-	{
-		UTIL_LogPrintf( "\"%s<%i><%s><%s>\" entered the game\n",  
-			STRING( pl->pev->netname ), 
-			GETPLAYERUSERID( pl->edict() ),
-			GETPLAYERAUTHID( pl->edict() ),
-			g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pl->edict() ), "model" ) );
-	}
-	else
 	{
 		UTIL_LogPrintf( "\"%s<%i><%s><%i>\" entered the game\n",  
 			STRING( pl->pev->netname ), 
@@ -490,16 +472,6 @@ void CHalfLifeMultiplay::ClientDisconnected( edict_t *pClient )
 		{
 			FireTargets( "game_playerleave", pPlayer, pPlayer, USE_TOGGLE, 0 );
 
-			// team match?
-			if( g_teamplay )
-			{
-				UTIL_LogPrintf( "\"%s<%i><%s><%s>\" disconnected\n",  
-					STRING( pPlayer->pev->netname ), 
-					GETPLAYERUSERID( pPlayer->edict() ),
-					GETPLAYERAUTHID( pPlayer->edict() ),
-					g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model" ) );
-			}
-			else
 			{
 				UTIL_LogPrintf( "\"%s<%i><%s><%i>\" disconnected\n",  
 					STRING( pPlayer->pev->netname ), 
@@ -736,17 +708,6 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 	{
 		// killed self
 
-		// team match?
-		if( g_teamplay )
-		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\"\n",  
-				STRING( pVictim->pev->netname ), 
-				GETPLAYERUSERID( pVictim->edict() ),
-				GETPLAYERAUTHID( pVictim->edict() ),
-				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-				killer_weapon_name );		
-		}
-		else
 		{
 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\"\n",  
 				STRING( pVictim->pev->netname ), 
@@ -758,21 +719,6 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 	}
 	else if( pKiller->flags & FL_CLIENT )
 	{
-		// team match?
-		if( g_teamplay )
-		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" killed \"%s<%i><%s><%s>\" with \"%s\"\n",  
-				STRING( pKiller->netname ),
-				GETPLAYERUSERID( ENT(pKiller) ),
-				GETPLAYERAUTHID( ENT(pKiller) ),
-				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( ENT(pKiller) ), "model" ),
-				STRING( pVictim->pev->netname ),
-				GETPLAYERUSERID( pVictim->edict() ),
-				GETPLAYERAUTHID( pVictim->edict() ),
-				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-				killer_weapon_name );
-		}
-		else
 		{
 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" killed \"%s<%i><%s><%i>\" with \"%s\"\n",  
 				STRING( pKiller->netname ),
@@ -790,17 +736,6 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 	{ 
 		// killed by the world
 
-		// team match?
-		if( g_teamplay )
-		{
-			UTIL_LogPrintf( "\"%s<%i><%s><%s>\" committed suicide with \"%s\" (world)\n",
-				STRING( pVictim->pev->netname ), 
-				GETPLAYERUSERID( pVictim->edict() ), 
-				GETPLAYERAUTHID( pVictim->edict() ),
-				g_engfuncs.pfnInfoKeyValue( g_engfuncs.pfnGetInfoKeyBuffer( pVictim->edict() ), "model" ),
-				killer_weapon_name );		
-		}
-		else
 		{
 			UTIL_LogPrintf( "\"%s<%i><%s><%i>\" committed suicide with \"%s\" (world)\n",
 				STRING( pVictim->pev->netname ), 

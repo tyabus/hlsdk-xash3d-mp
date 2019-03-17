@@ -32,7 +32,6 @@
 #include "player.h"
 #include "weapons.h"
 #include "gamerules.h"
-#include "teamplay_gamerules.h"
 #include "physcallback.h"
 
 extern CGraph WorldGraph;
