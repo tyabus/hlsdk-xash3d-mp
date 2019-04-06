@@ -1056,14 +1056,6 @@ BOOL CHalfLifeMultiplay::FAllowFlashlight( void )
 }
 
 //=========================================================
-//=========================================================
-
-BOOL CHalfLifeMultiplay::FAllowMonsters( void )
-{
-	ALERT( at_console, "CHalfLifeMultiplay::FAllowMonsters has been called!/n" );
-}
-
-//=========================================================
 //======== CHalfLifeMultiplay private functions ===========
 #define INTERMISSION_TIME		6
 

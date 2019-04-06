@@ -157,9 +157,6 @@ public:
 	virtual BOOL PlayTextureSounds( void ) { return TRUE; }
 	virtual BOOL PlayFootstepSounds( CBasePlayer *pl, float fvol ) { return TRUE; }
 
-	// Monsters
-	virtual BOOL FAllowMonsters( void ) = 0;//are monsters allowed
-
 	// Immediately end a multiplayer game
 	virtual void EndMultiplayerGame( void ) {}
 };
@@ -244,9 +241,6 @@ public:
 
 	// What happens to a dead player's ammo	
 	virtual int DeadPlayerAmmo( CBasePlayer *pPlayer );
-
-	// Monsters
-	virtual BOOL FAllowMonsters( void );
 
 	// Teamplay stuff	
 	virtual const char *GetTeamID( CBaseEntity *pEntity ) {return "";};
@@ -347,9 +341,6 @@ public:
 
 	virtual BOOL PlayTextureSounds( void ) { return FALSE; }
 	virtual BOOL PlayFootstepSounds( CBasePlayer *pl, float fvol );
-
-	// Monsters
-	virtual BOOL FAllowMonsters( void );
 
 	// Immediately end a multiplayer game
 	virtual void EndMultiplayerGame( void ) { GoToIntermission(); }

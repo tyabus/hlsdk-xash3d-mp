@@ -1976,13 +1976,6 @@ void CBaseMonster::MoveExecute( CBaseEntity *pTargetEnt, const Vector &vecDir, f
 //=========================================================
 void CBaseMonster::MonsterInit( void )
 {
-	if( !g_pGameRules->FAllowMonsters() )
-	{
-		pev->flags |= FL_KILLME;		// Post this because some monster code modifies class data after calling this function
-		//REMOVE_ENTITY( ENT( pev ) );
-		return;
-	}
-
 	// Set fields common to all monsters
 	pev->effects		= 0;
 	pev->takedamage		= DAMAGE_AIM;
