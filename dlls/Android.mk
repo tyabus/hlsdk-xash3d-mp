@@ -47,7 +47,6 @@ LOCAL_SRC_FILES := animating.cpp \
            gamerules.cpp \
            gauss.cpp \
 	   skill.cpp \
-           genericmonster.cpp \
            ggrenade.cpp \
            globals.cpp \
            glock.cpp \
@@ -80,7 +79,6 @@ LOCAL_SRC_FILES := animating.cpp \
            spectator.cpp \
            squeakgrenade.cpp \
            subs.cpp \
-	   xenlite.cpp \
            triggers.cpp \
            tripmine.cpp \
            util.cpp \
