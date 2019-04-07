@@ -43,7 +43,7 @@ enum gauss_e
 };
 
 LINK_ENTITY_TO_CLASS( weapon_gauss, CGauss )
-LINK_ENTITY_TO_CLASS( weapon_egon, CGauss )
+//LINK_ENTITY_TO_CLASS( weapon_egon, CGauss )
 
 float CGauss::GetFullChargeTime( void )
 {
