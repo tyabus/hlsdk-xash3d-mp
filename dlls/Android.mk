@@ -84,6 +84,7 @@ LOCAL_SRC_FILES := animating.cpp \
            util.cpp \
            weapons.cpp \
            world.cpp \
+	   xenlite.cpp \
 	   ../pm_shared/pm_debug.c \
 	   ../pm_shared/pm_math.c \
 	   ../pm_shared/pm_shared.c
