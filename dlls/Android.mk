@@ -52,6 +52,7 @@ LOCAL_SRC_FILES := animating.cpp \
            glock.cpp \
            h_ai.cpp \
            h_battery.cpp \
+	   h_cycler.cpp \
            h_export.cpp \
            handgrenade.cpp \
            healthkit.cpp \
@@ -85,6 +86,7 @@ LOCAL_SRC_FILES := animating.cpp \
            util.cpp \
            weapons.cpp \
            world.cpp \
+	   stub.cpp \
 	   xenlite.cpp \
 	   ../pm_shared/pm_debug.c \
 	   ../pm_shared/pm_math.c \
