@@ -57,6 +57,7 @@ LINK_ENTITY_TO_CLASS( monster_cine3_barney, CStub )
 LINK_ENTITY_TO_CLASS( xen_tree, CStub )
 LINK_ENTITY_TO_CLASS( info_bigmomma, CStub )
 LINK_ENTITY_TO_CLASS( cine_blood, CStub )
+LINK_ENTITY_TO_CLASS( weapon_egon, CStub )
 
 void CStub::Spawn( void )
 {
